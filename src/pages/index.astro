@@ -15,8 +15,26 @@ const businessesByCategory = businessData.businesses.reduce((acc, business) => {
   return acc;
 }, {} as Record<string, typeof businessData.businesses>);
 
-// Get unique categories sorted alphabetically
-const categories = Object.keys(businessesByCategory).sort();
+// Essential categories for emergencies and immediate needs
+const essentialCategories = [
+  'Plumbers',
+  'Electricians',
+  'Builders',
+  'Dentists',
+  'Pharmacies',
+  'Veterinary Services',
+  'Barbers'
+];
+
+// Filter to only essential categories for homepage
+const essentialBusinessesByCategory = Object.fromEntries(
+  Object.entries(businessesByCategory).filter(([category]) => 
+    essentialCategories.includes(category)
+  )
+);
+
+// Get unique categories sorted by essential order
+const categories = essentialCategories.filter(cat => businessesByCategory[cat]);
 ---
 
 <Layout>
@@ -24,56 +42,119 @@ const categories = Object.keys(businessesByCategory).sort();
   <Hero />
   
   <!-- Category Navigation -->
-  <nav class="sticky top-0 z-10 bg-white shadow-md">
-    <div class="container mx-auto px-4 py-4">
-      <div class="flex flex-wrap justify-center gap-3">
+  <nav class="sticky top-0 z-10 bg-white shadow-md border-b border-gray-100">
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex flex-wrap justify-center gap-2">
         {categories.map((category) => (
           <a 
             href={`#${category.toLowerCase().replace(/\s+/g, '-')}`}
-            class="px-4 py-2 bg-blue-100 hover:bg-blue-600 hover:text-white text-blue-800 rounded-full font-medium transition-colors duration-200 text-sm md:text-base"
+            class="px-3 py-1.5 bg-blue-50 hover:bg-blue-600 hover:text-white text-blue-700 rounded-full font-medium transition-all duration-200 text-xs md:text-sm border border-blue-200 hover:border-blue-600 hover:shadow-md transform hover:scale-105"
           >
             {category}
           </a>
         ))}
+        <a 
+          href="/categories"
+          class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full font-medium transition-all duration-200 text-xs md:text-sm border border-gray-300 hover:border-gray-400"
+        >
+          View All →
+        </a>
       </div>
     </div>
   </nav>
   
   <!-- Main Content -->
-  <main class="container mx-auto px-4 py-12">
+  <main class="container mx-auto px-4 py-8">
     <!-- Intro Section -->
-    <div class="max-w-3xl mx-auto text-center mb-16">
+    <div class="max-w-3xl mx-auto text-center mb-12">
       <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-        Discover Trusted Local Businesses in Taunton
+        Essential Local Services in Taunton
       </h2>
       <p class="text-lg text-gray-700 leading-relaxed">
-        Browse our comprehensive directory of local services. From emergency plumbers to professional cleaners, 
-        find reliable businesses in your area. All listings are verified and trusted by the Taunton community.
+        Find trusted emergency and essential services when you need them most. 
+        From 24/7 plumbers to emergency electricians, dentists, and pharmacies.
       </p>
+      <div class="mt-6 flex flex-wrap justify-center gap-2 text-sm text-gray-600">
+        <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full">🚨 Emergency Services</span>
+        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">🏥 Healthcare</span>
+        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full">🏠 Home Services</span>
+        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full">🐾 Pet Care</span>
+      </div>
     </div>
     
     <!-- Business Listings by Category -->
     {categories.map((category) => (
       <CategorySection 
         category={category}
-        businesses={businessesByCategory[category]}
+        businesses={essentialBusinessesByCategory[category]}
       />
     ))}
     
     <!-- Call to Action -->
-    <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-2xl p-8 md:p-12 text-center mt-16">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Want to List Your Business?</h2>
-      <p class="text-xl text-blue-100 mb-6 max-w-2xl mx-auto">
-        Join our growing directory and connect with customers in Taunton and surrounding areas.
+    <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-2xl p-6 md:p-8 text-center mt-12">
+      <h2 class="text-2xl md:text-3xl font-bold mb-3">Need Other Services?</h2>
+      <p class="text-lg text-blue-100 mb-4 max-w-2xl mx-auto">
+        We have 22+ categories including restaurants, cafes, hairdressers, florists, and more.
       </p>
-      <a 
-        href="mailto:info@tauntonsomerset.co.uk" 
-        class="inline-block bg-white text-blue-600 font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors text-lg"
-      >
-        Get Listed Today
-      </a>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a 
+          href="/categories" 
+          class="inline-block bg-white text-blue-600 font-bold px-6 py-2 rounded-lg hover:bg-blue-50 transition-colors"
+        >
+          View All Categories
+        </a>
+        <a 
+          href="mailto:info@tauntonsomerset.co.uk" 
+          class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold px-6 py-2 rounded-lg transition-colors"
+        >
+          List Your Business
+        </a>
+      </div>
     </div>
   </main>
   
   <Footer />
+  
+  <!-- Back to Top Button -->
+  <button 
+    id="back-to-top" 
+    class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible transform translate-y-4 z-50"
+    aria-label="Back to top"
+  >
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+  </button>
 </Layout>
+
+<script>
+  // Back to top functionality
+  const backToTopButton = document.getElementById('back-to-top');
+  
+  function toggleBackToTop() {
+    const scrolled = window.pageYOffset;
+    const threshold = 300;
+    
+    if (scrolled > threshold) {
+      backToTopButton?.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+      backToTopButton?.classList.add('opacity-100', 'visible', 'translate-y-0');
+    } else {
+      backToTopButton?.classList.add('opacity-0', 'invisible', 'translate-y-4');
+      backToTopButton?.classList.remove('opacity-100', 'visible', 'translate-y-0');
+    }
+  }
+  
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+  
+  // Event listeners
+  window.addEventListener('scroll', toggleBackToTop);
+  backToTopButton?.addEventListener('click', scrollToTop);
+  
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', toggleBackToTop);
+</script>

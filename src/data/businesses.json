@@ -87,6 +87,182 @@
       "address": "15 Bridge Street, Taunton TA1 3HH",
       "website": "https://pristinehome.co.uk",
       "featured": false
+    },
+    {
+      "id": 9,
+      "name": "Classic Cuts Barbers",
+      "category": "Barbers",
+      "description": "Traditional barber services for men including haircuts, shaves, and beard grooming. Open 7 days a week.",
+      "phone": "01823 555009",
+      "email": "info@classiccuts.co.uk",
+      "address": "27 East Street, Taunton TA1 3II",
+      "website": "https://classiccuts-taunton.co.uk",
+      "featured": true
+    },
+    {
+      "id": 10,
+      "name": "Bloom & Blossom Florists",
+      "category": "Florists",
+      "description": "Beautiful fresh flowers for all occasions. Wedding bouquets, funeral arrangements, and same-day delivery.",
+      "phone": "01823 555010",
+      "email": "orders@bloomandblossom.co.uk",
+      "address": "42 Silver Street, Taunton TA1 3JJ",
+      "website": "https://bloomandblossom.co.uk",
+      "featured": true
+    },
+    {
+      "id": 11,
+      "name": "Bella Vista Hair Studio",
+      "category": "Hairdressers",
+      "description": "Modern hair salon offering cuts, colours, styling, and treatments for all hair types. Professional and friendly service.",
+      "phone": "01823 555011",
+      "email": "appointments@bellavista.co.uk",
+      "address": "8 Northgate, Taunton TA1 3KK",
+      "website": "https://bellavista-hair.co.uk",
+      "featured": false
+    },
+    {
+      "id": 12,
+      "name": "The Old Inn Restaurant",
+      "category": "Restaurants",
+      "description": "Traditional British pub food with a modern twist. Sunday roasts, daily specials, and extensive wine list.",
+      "phone": "01823 555012",
+      "email": "reservations@theoldinn.co.uk",
+      "address": "16 Church Square, Taunton TA1 3LL",
+      "website": "https://theoldinn-taunton.co.uk",
+      "featured": true
+    },
+    {
+      "id": 13,
+      "name": "Costa Coffee Taunton",
+      "category": "Cafes",
+      "description": "Premium coffee, fresh pastries, and light meals. Perfect for meetings, studying, or a quick break.",
+      "phone": "01823 555013",
+      "email": "taunton@costa.co.uk",
+      "address": "1-3 Fore Street, Taunton TA1 3MM",
+      "website": "https://costa.co.uk",
+      "featured": false
+    },
+    {
+      "id": 14,
+      "name": "Dragon Palace Chinese Takeaway",
+      "category": "Takeaways",
+      "description": "Authentic Chinese cuisine with fresh ingredients. Delivery available within 3 miles. Open until 11pm.",
+      "phone": "01823 555014",
+      "email": "orders@dragonpalace.co.uk",
+      "address": "19 Hammet Street, Taunton TA1 3NN",
+      "website": "https://dragonpalace-takeaway.co.uk",
+      "featured": false
+    },
+    {
+      "id": 15,
+      "name": "Taunton Estate Agents",
+      "category": "Estate Agents",
+      "description": "Local property experts for buying, selling, and renting. Free valuations and market appraisals.",
+      "phone": "01823 555015",
+      "email": "info@tauntonestates.co.uk",
+      "address": "55 Staplegrove Road, Taunton TA1 3OO",
+      "website": "https://tauntonestates.co.uk",
+      "featured": true
+    },
+    {
+      "id": 16,
+      "name": "Smith & Partners Solicitors",
+      "category": "Solicitors",
+      "description": "Comprehensive legal services including conveyancing, wills, family law, and business advice.",
+      "phone": "01823 555016",
+      "email": "enquiries@smithpartners.co.uk",
+      "address": "22 Paul Street, Taunton TA1 3PP",
+      "website": "https://smithpartners.co.uk",
+      "featured": false
+    },
+    {
+      "id": 17,
+      "name": "Taunton Dental Practice",
+      "category": "Dentists",
+      "description": "Family dental practice offering NHS and private treatments. Emergency appointments available.",
+      "phone": "01823 555017",
+      "email": "reception@tauntondental.co.uk",
+      "address": "33 Castle Street, Taunton TA1 3QQ",
+      "website": "https://tauntondental.co.uk",
+      "featured": false
+    },
+    {
+      "id": 18,
+      "name": "Somerset Vets",
+      "category": "Veterinary Services",
+      "description": "24/7 emergency veterinary care for pets. Routine check-ups, vaccinations, and surgical procedures.",
+      "phone": "01823 555018",
+      "email": "info@somersetvets.co.uk",
+      "address": "77 Priory Avenue, Taunton TA1 3RR",
+      "website": "https://somersetvets.co.uk",
+      "featured": true
+    },
+    {
+      "id": 19,
+      "name": "Lloyds Pharmacy Taunton",
+      "category": "Pharmacies",
+      "description": "Full range of prescription medicines, health advice, and over-the-counter products. NHS services available.",
+      "phone": "01823 555019",
+      "email": "taunton@lloydspharmacy.co.uk",
+      "address": "89 High Street, Taunton TA1 3SS",
+      "website": "https://lloydspharmacy.com",
+      "featured": false
+    },
+    {
+      "id": 20,
+      "name": "Taunton News & Post",
+      "category": "Newsagents",
+      "description": "Local newspapers, magazines, stationery, and convenience items. Lottery tickets and postal services.",
+      "phone": "01823 555020",
+      "email": "info@tauntonnews.co.uk",
+      "address": "44 East Reach, Taunton TA1 3TT",
+      "website": "",
+      "featured": false
+    },
+    {
+      "id": 21,
+      "name": "Farmers Market Butchers",
+      "category": "Butchers",
+      "description": "Quality local meats, sausages, and game. Fresh cuts daily from local farms. Free delivery over £25.",
+      "phone": "01823 555021",
+      "email": "orders@farmersmarketbutchers.co.uk",
+      "address": "67 Market Street, Taunton TA1 3UU",
+      "website": "https://farmersmarketbutchers.co.uk",
+      "featured": false
+    },
+    {
+      "id": 22,
+      "name": "The Village Bakery",
+      "category": "Bakers",
+      "description": "Freshly baked bread, cakes, and pastries daily. Gluten-free and vegan options available.",
+      "phone": "01823 555022",
+      "email": "bakery@thevillagebakery.co.uk",
+      "address": "12 Crescent Way, Taunton TA1 3VV",
+      "website": "https://thevillagebakery.co.uk",
+      "featured": true
+    },
+    {
+      "id": 23,
+      "name": "Local Foods Co-op",
+      "category": "Grocers",
+      "description": "Community-owned grocery store with local produce, organic foods, and fair trade products.",
+      "phone": "01823 555023",
+      "email": "shop@localfoods.coop",
+      "address": "38 Wellington Road, Taunton TA1 3WW",
+      "website": "https://localfoods.coop",
+      "featured": false
+    },
+    {
+      "id": 24,
+      "name": "Taunton Accountants Ltd",
+      "category": "Accountants",
+      "description": "Professional accounting services for businesses and individuals. Tax planning, bookkeeping, and VAT returns.",
+      "phone": "01823 555024",
+      "email": "info@tauntonaccountants.co.uk",
+      "address": "51 Kingston Road, Taunton TA1 3XX",
+      "website": "https://tauntonaccountants.co.uk",
+      "featured": false
     }
   ]
 }

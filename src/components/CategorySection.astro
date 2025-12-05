@@ -20,6 +20,35 @@ interface Props {
 
 const { category, businesses } = Astro.props;
 
+// Category icons mapping
+const categoryIcons = {
+  'Plumbers': '🔧',
+  'Cleaners': '🧽',
+  'Electricians': '⚡',
+  'Builders': '🏗️',
+  'Gardeners': '🌱',
+  'Painters & Decorators': '🎨',
+  'Barbers': '✂️',
+  'Hairdressers': '💇‍♀️',
+  'Florists': '🌸',
+  'Restaurants': '🍽️',
+  'Cafes': '☕',
+  'Takeaways': '🥡',
+  'Estate Agents': '🏠',
+  'Solicitors': '⚖️',
+  'Dentists': '🦷',
+  'Veterinary Services': '🐾',
+  'Pharmacies': '💊',
+  'Newsagents': '📰',
+  'Butchers': '🥩',
+  'Bakers': '🍞',
+  'Grocers': '🛒',
+  'Accountants': '🧮'
+};
+
+// Get icon for category, fallback to default
+const getCategoryIcon = (cat: string) => (categoryIcons as any)[cat] || '🏢';
+
 // Sort businesses: featured first, then alphabetically
 const sortedBusinesses = businesses.sort((a, b) => {
   if (a.featured && !b.featured) return -1;
@@ -30,7 +59,13 @@ const sortedBusinesses = businesses.sort((a, b) => {
 
 <section id={category.toLowerCase().replace(/\s+/g, '-')} class="mb-16 scroll-mt-24">
   <div class="mb-8">
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{category}</h2>
+    <div class="flex items-center mb-4">
+      <span class="text-4xl mr-4" role="img" aria-label={`${category} icon`}>{getCategoryIcon(category)}</span>
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{category}</h2>
+        <p class="text-gray-600">{businesses.length} business{businesses.length !== 1 ? 'es' : ''} in this category</p>
+      </div>
+    </div>
     <div class="w-20 h-1 bg-blue-600 rounded"></div>
   </div>
   
