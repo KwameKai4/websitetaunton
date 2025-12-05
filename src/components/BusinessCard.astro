@@ -1,0 +1,92 @@
+---
+interface Props {
+  name: string;
+  category: string;
+  description: string;
+  phone: string;
+  email: string;
+  address: string;
+  website?: string;
+  featured?: boolean;
+}
+
+const { name, category, description, phone, email, address, website, featured = false } = Astro.props;
+
+// Generate structured data for this business
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": name,
+  "description": description,
+  "telephone": phone,
+  "email": email,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": address.split(',')[0].trim(),
+    "addressLocality": "Taunton",
+    "addressRegion": "Somerset",
+    "addressCountry": "GB"
+  }
+};
+
+if (website) {
+  structuredData.url = website;
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+<article class={`bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 p-6 ${featured ? 'border-2 border-blue-500' : 'border border-gray-200'}`}>
+  {featured && (
+    <div class="inline-block bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">
+      Featured
+    </div>
+  )}
+  
+  <h3 class="text-2xl font-bold text-gray-900 mb-2">{name}</h3>
+  <p class="text-sm text-blue-600 font-medium mb-3">{category}</p>
+  <p class="text-gray-700 mb-4 leading-relaxed">{description}</p>
+  
+  <div class="space-y-2 border-t border-gray-100 pt-4">
+    <!-- Phone -->
+    <div class="flex items-start gap-2">
+      <svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+      </svg>
+      <a href={`tel:${phone.replace(/\s/g, '')}`} class="text-gray-800 hover:text-blue-600 transition-colors">
+        {phone}
+      </a>
+    </div>
+    
+    <!-- Email -->
+    <div class="flex items-start gap-2">
+      <svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+      <a href={`mailto:${email}`} class="text-gray-800 hover:text-blue-600 transition-colors break-all">
+        {email}
+      </a>
+    </div>
+    
+    <!-- Address -->
+    <div class="flex items-start gap-2">
+      <svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+      <span class="text-gray-800">{address}</span>
+    </div>
+    
+    <!-- Website -->
+    {website && (
+      <div class="flex items-start gap-2">
+        <svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+        </svg>
+        <a href={website} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 transition-colors break-all">
+          Visit Website
+        </a>
+      </div>
+    )}
+  </div>
+</article>

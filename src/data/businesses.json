@@ -1,0 +1,92 @@
+{
+  "businesses": [
+    {
+      "id": 1,
+      "name": "Swift Plumbing Solutions",
+      "category": "Plumbers",
+      "description": "24/7 emergency plumbing repairs, installations, and maintenance. Serving Taunton and surrounding areas for over 15 years.",
+      "phone": "01823 555001",
+      "email": "info@swiftplumbing.co.uk",
+      "address": "12 High Street, Taunton TA1 3AA",
+      "website": "https://swiftplumbing.co.uk",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "name": "Sparkle Clean Services",
+      "category": "Cleaners",
+      "description": "Professional domestic and commercial cleaning services. Eco-friendly products and fully insured team.",
+      "phone": "01823 555002",
+      "email": "hello@sparkleclean.co.uk",
+      "address": "45 East Reach, Taunton TA1 3BB",
+      "website": "https://sparkleclean.co.uk",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "name": "PowerFlow Electricians",
+      "category": "Electricians",
+      "description": "Certified electricians for all your electrical needs. Rewiring, testing, and emergency callouts available.",
+      "phone": "01823 555003",
+      "email": "contact@powerflow.co.uk",
+      "address": "78 North Street, Taunton TA1 3CC",
+      "website": "https://powerflow.co.uk",
+      "featured": false
+    },
+    {
+      "id": 4,
+      "name": "Somerset Builders Ltd",
+      "category": "Builders",
+      "description": "Quality building services including extensions, renovations, and new builds. Free quotes and competitive prices.",
+      "phone": "01823 555004",
+      "email": "info@somersetbuilders.co.uk",
+      "address": "23 Station Road, Taunton TA1 3DD",
+      "website": "https://somersetbuilders.co.uk",
+      "featured": false
+    },
+    {
+      "id": 5,
+      "name": "Green Thumb Gardening",
+      "category": "Gardeners",
+      "description": "Expert garden maintenance, landscaping, and design. Weekly, fortnightly, or one-off services available.",
+      "phone": "01823 555005",
+      "email": "gardens@greenthumb.co.uk",
+      "address": "56 Corporation Street, Taunton TA1 3EE",
+      "website": "https://greenthumb-taunton.co.uk",
+      "featured": false
+    },
+    {
+      "id": 6,
+      "name": "Perfect Finish Decorators",
+      "category": "Painters & Decorators",
+      "description": "Interior and exterior painting and decorating. High-quality finishes for homes and businesses.",
+      "phone": "01823 555006",
+      "email": "info@perfectfinish.co.uk",
+      "address": "34 Wood Street, Taunton TA1 3FF",
+      "website": "https://perfectfinish.co.uk",
+      "featured": true
+    },
+    {
+      "id": 7,
+      "name": "AquaFix Plumbing",
+      "category": "Plumbers",
+      "description": "Reliable plumbing services for boiler installations, bathroom fitting, and leak repairs.",
+      "phone": "01823 555007",
+      "email": "service@aquafix.co.uk",
+      "address": "91 Fore Street, Taunton TA1 3GG",
+      "website": "",
+      "featured": false
+    },
+    {
+      "id": 8,
+      "name": "Pristine Home Cleaners",
+      "category": "Cleaners",
+      "description": "Trusted cleaning professionals for regular house cleaning, deep cleans, and end of tenancy services.",
+      "phone": "01823 555008",
+      "email": "bookings@pristinehome.co.uk",
+      "address": "15 Bridge Street, Taunton TA1 3HH",
+      "website": "https://pristinehome.co.uk",
+      "featured": false
+    }
+  ]
+}

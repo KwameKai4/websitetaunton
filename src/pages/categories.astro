@@ -1,0 +1,139 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import businessData from '../data/businesses.json';
+
+// Group businesses by category and count them
+const businessesByCategory = businessData.businesses.reduce((acc, business) => {
+  if (!acc[business.category]) {
+    acc[business.category] = [];
+  }
+  acc[business.category].push(business);
+  return acc;
+}, {} as Record<string, typeof businessData.businesses>);
+
+// Get categories with counts, sorted alphabetically
+const categoriesWithCounts = Object.entries(businessesByCategory)
+  .map(([category, businesses]) => ({
+    name: category,
+    count: businesses.length,
+    slug: category.toLowerCase().replace(/\s+/g, '-')
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<Layout 
+  title="All Categories - Taunton Somerset Business Directory"
+  description="Browse all business categories in Taunton Somerset. Find plumbers, cleaners, electricians, builders, gardeners and more local services in your area."
+>
+  <Navigation />
+  
+  <!-- Page Header -->
+  <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">All Categories</h1>
+      <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+        Browse our complete directory of local business categories
+      </p>
+    </div>
+  </div>
+  
+  <main class="container mx-auto px-4 py-16">
+    <div class="max-w-5xl mx-auto">
+      <!-- Introduction -->
+      <div class="text-center mb-12">
+        <p class="text-lg text-gray-700">
+          Explore {categoriesWithCounts.length} categories with {businessData.businesses.length} trusted local businesses serving Taunton and Somerset
+        </p>
+      </div>
+      
+      <!-- Category Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {categoriesWithCounts.map((category) => (
+          <a 
+            href={`/#${category.slug}`}
+            class="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-6 group"
+          >
+            <div class="flex items-center justify-between mb-3">
+              <h2 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                {category.name}
+              </h2>
+              <span class="bg-blue-100 text-blue-600 font-semibold px-3 py-1 rounded-full text-sm">
+                {category.count}
+              </span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">
+              {category.count} {category.count === 1 ? 'business' : 'businesses'} available
+            </p>
+            <div class="flex items-center text-blue-600 group-hover:text-blue-800 transition-colors">
+              <span class="text-sm font-medium">View Businesses</span>
+              <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+        ))}
+      </div>
+      
+      <!-- Popular Services -->
+      <div class="mt-16 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-8 md:p-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
+          Popular Local Services in Taunton
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <div class="bg-white rounded-lg p-4 shadow">
+            <div class="text-3xl mb-2">🔧</div>
+            <p class="font-semibold text-gray-900">Plumbing</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow">
+            <div class="text-3xl mb-2">✨</div>
+            <p class="font-semibold text-gray-900">Cleaning</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow">
+            <div class="text-3xl mb-2">⚡</div>
+            <p class="font-semibold text-gray-900">Electrical</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow">
+            <div class="text-3xl mb-2">🏗️</div>
+            <p class="font-semibold text-gray-900">Building</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow">
+            <div class="text-3xl mb-2">🌿</div>
+            <p class="font-semibold text-gray-900">Gardening</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow">
+            <div class="text-3xl mb-2">🎨</div>
+            <p class="font-semibold text-gray-900">Decorating</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow">
+            <div class="text-3xl mb-2">🔨</div>
+            <p class="font-semibold text-gray-900">Repairs</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 shadow">
+            <div class="text-3xl mb-2">🏠</div>
+            <p class="font-semibold text-gray-900">Home Services</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Call to Action -->
+      <div class="mt-16 bg-white rounded-lg shadow-lg p-8 md:p-12 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+          Can't Find What You're Looking For?
+        </h2>
+        <p class="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
+          We're always adding new categories and businesses. If you have a specific service in mind, get in touch and we'll help you find the right local business.
+        </p>
+        <a 
+          href="/contact" 
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-lg transition-colors"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>

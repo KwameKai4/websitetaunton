@@ -1,0 +1,229 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Contact Us - List Your Business | Taunton Somerset Directory"
+  description="Get your business listed in the Taunton Somerset Directory. Contact us to join our growing network of local businesses serving Taunton and surrounding areas."
+>
+  <Navigation />
+  
+  <!-- Page Header -->
+  <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
+      <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+        Get your business listed in our directory and connect with local customers
+      </p>
+    </div>
+  </div>
+  
+  <main class="container mx-auto px-4 py-16">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Contact Form -->
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Get Listed Today</h2>
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
+            <!-- Business Name -->
+            <div>
+              <label for="business-name" class="block text-sm font-medium text-gray-700 mb-2">
+                Business Name *
+              </label>
+              <input 
+                type="text" 
+                id="business-name" 
+                name="business-name" 
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Your Business Name"
+              />
+            </div>
+            
+            <!-- Category -->
+            <div>
+              <label for="category" class="block text-sm font-medium text-gray-700 mb-2">
+                Category *
+              </label>
+              <select 
+                id="category" 
+                name="category" 
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                <option value="">Select a category</option>
+                <option value="Plumbers">Plumbers</option>
+                <option value="Cleaners">Cleaners</option>
+                <option value="Electricians">Electricians</option>
+                <option value="Builders">Builders</option>
+                <option value="Gardeners">Gardeners</option>
+                <option value="Painters & Decorators">Painters & Decorators</option>
+                <option value="Other">Other (please specify in message)</option>
+              </select>
+            </div>
+            
+            <!-- Contact Name -->
+            <div>
+              <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-2">
+                Your Name *
+              </label>
+              <input 
+                type="text" 
+                id="contact-name" 
+                name="contact-name" 
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="John Smith"
+              />
+            </div>
+            
+            <!-- Email -->
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                Email Address *
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="email@example.com"
+              />
+            </div>
+            
+            <!-- Phone -->
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
+                Phone Number *
+              </label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="01823 555000"
+              />
+            </div>
+            
+            <!-- Website -->
+            <div>
+              <label for="website" class="block text-sm font-medium text-gray-700 mb-2">
+                Website (Optional)
+              </label>
+              <input 
+                type="url" 
+                id="website" 
+                name="website"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="https://yourbusiness.co.uk"
+              />
+            </div>
+            
+            <!-- Message -->
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+                Additional Information
+              </label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="4"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Tell us about your business and services..."
+              ></textarea>
+            </div>
+            
+            <!-- Submit Button -->
+            <button 
+              type="submit"
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+            >
+              Submit Listing Request
+            </button>
+          </form>
+        </div>
+        
+        <!-- Contact Information -->
+        <div>
+          <div class="bg-blue-50 rounded-lg p-8 mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
+            
+            <div class="space-y-6">
+              <!-- Email -->
+              <div class="flex items-start gap-4">
+                <div class="bg-blue-600 text-white p-3 rounded-lg">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">Email</h3>
+                  <a href="mailto:info@tauntonsomerset.co.uk" class="text-blue-600 hover:text-blue-800">
+                    info@tauntonsomerset.co.uk
+                  </a>
+                </div>
+              </div>
+              
+              <!-- Location -->
+              <div class="flex items-start gap-4">
+                <div class="bg-blue-600 text-white p-3 rounded-lg">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">Location</h3>
+                  <p class="text-gray-700">Taunton, Somerset<br>United Kingdom</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Why List With Us -->
+          <div class="bg-white rounded-lg shadow-lg p-8">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Why List With Us?</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-600 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">Reach local customers in Taunton and Somerset</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-600 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">SEO-optimized listings for better visibility</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-600 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">Mobile-friendly directory for on-the-go searches</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-600 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">Featured listing options available</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-600 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">Support local business community</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>

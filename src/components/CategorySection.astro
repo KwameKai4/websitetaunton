@@ -1,0 +1,51 @@
+---
+import BusinessCard from './BusinessCard.astro';
+
+interface Business {
+  id: number;
+  name: string;
+  category: string;
+  description: string;
+  phone: string;
+  email: string;
+  address: string;
+  website?: string;
+  featured?: boolean;
+}
+
+interface Props {
+  category: string;
+  businesses: Business[];
+}
+
+const { category, businesses } = Astro.props;
+
+// Sort businesses: featured first, then alphabetically
+const sortedBusinesses = businesses.sort((a, b) => {
+  if (a.featured && !b.featured) return -1;
+  if (!a.featured && b.featured) return 1;
+  return a.name.localeCompare(b.name);
+});
+---
+
+<section id={category.toLowerCase().replace(/\s+/g, '-')} class="mb-16 scroll-mt-24">
+  <div class="mb-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{category}</h2>
+    <div class="w-20 h-1 bg-blue-600 rounded"></div>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {sortedBusinesses.map((business) => (
+      <BusinessCard
+        name={business.name}
+        category={business.category}
+        description={business.description}
+        phone={business.phone}
+        email={business.email}
+        address={business.address}
+        website={business.website}
+        featured={business.featured}
+      />
+    ))}
+  </div>
+</section>

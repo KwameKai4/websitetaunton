@@ -1,0 +1,6 @@
+# robots.txt for tauntonsomerset.co.uk
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tauntonsomerset.co.uk/sitemap-index.xml
