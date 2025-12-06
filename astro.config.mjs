@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://tauntonsomerset.co.uk',
+  site: 'https://kwamekai4.github.io/websitetaunton',
   vite: {
     plugins: [tailwindcss()]
   },
